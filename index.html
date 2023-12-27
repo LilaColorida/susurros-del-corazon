@@ -1,0 +1,87 @@
+<style>
+        #game {
+        width:1000px;
+        height:600px;
+        background-image: url(insti.jpg);
+        margin: 0 auto
+    }
+
+    .characters {
+        width:496px;
+        height:400px;
+        display:inline-block;
+    }
+    
+    #character1 {
+        background-image: url(Sayumi.png);
+        background-size: 100%;
+    }
+
+    #character2 {
+        background-image: url(Kai.png);
+        background-size: 100%;
+    }
+
+    #dialog {
+        height:100px;
+        margin-top: 25px;
+        margin-left: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+
+        padding: 20px;
+        font-size: 25px;
+        background-color: rgba(255, 255, 255, .8);
+        border-radius: 20px;
+    }
+
+    #final {
+        display: none;
+        max-height: 600px;
+        margin: 0 auto;
+    }
+</style>
+
+<div id="game">
+    <div class="characters" id="character1">
+        .
+    </div>
+    <div class="characters" id="character2">
+        .
+    </div>
+    <div id="dialog" onclick="nextComment()">
+        (Click para empezar)
+    </div>
+</div>
+
+<img id="final" src="Final1.jpg" alt="Kai se animó a cantar en el concierto junto a Sayumi.">
+
+<script>
+
+const comments = [
+    "<b>Kaius</b>: ¿Ahora que habrá pasado para verla tan felíz?",
+    "<b>Sayumi</b>: ¡Hey Kai! ¿Has oído hablar del concierto que se llevará a cabo en la ciudad este fin de semana?",
+    "<b>Kaius</b>:(con una sonrisa sarcástica) Oh, sí, claro. Estoy emocionado por ver a un montón de personas gritando y bailando como locas. Suena como mi idea de diversión perfecta.",
+    "<b>Sayumi</b>: (riéndose) Bueno, no todos somos tan entusiastas como tú. Pero en serio, he escuchado que la banda es increíble. ¿Te gustaría ir?",
+    "<b>Kaius</b>: (levantando una ceja) ¿Yo, emocionado por un concierto? No sé de qué estás hablando. Pero bueno, supongo que podría considerarlo. Solo para no romper tu corazón, ¿sabes?",
+    "<b>Sayumi</b>: (sonríe) ¡Oh, Kai, sé que en el fondo eres un romántico empedernido! Seguro que te encantará. Además, la música en vivo tiene una manera especial de llegar a las personas.",
+    "<b>Kaius</b>: (suspira exageradamente) No sé cómo soportaré tanta emoción. Pero si insistes, tal vez pueda aguantar un par de canciones. No prometo más que eso.",
+    "<b>Sayumi</b>: (riéndose) Perfecto, ¡será divertido! Podemos encontrarnos antes y asegurarnos de que no te pierdas en la multitud.",
+    "<b>Kaius</b>: (con una sonrisa burlona) ¿Perderme en la multitud? Por favor, soy como un ninja en estos eventos. Pero sí, nos encontraremos antes. No vaya a ser que te preocupes demasiado por mí."
+];
+
+let commentIndex = 0;
+
+function nextComment() {
+        document.getElementById('dialog').innerHTML = comments[commentIndex]
+
+        commentIndex = commentIndex + 1;
+   
+    if (commentIndex > comments.length) {
+        document.getElementById('game').style.display = 'none'; // Ocultar el juego
+        document.getElementById('final').style.display = 'block'; // Mostrar la imagen
+
+    } 
+}
+
+</script>
